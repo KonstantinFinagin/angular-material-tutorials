@@ -12,7 +12,7 @@ export class UserService {
 
   private dataStore: {
     users: User[]
-  }
+  };
 
   constructor(private http: HttpClient) {
     this.dataStore = { users: [] };
@@ -21,6 +21,10 @@ export class UserService {
 
   get users(): Observable<User[]> {
     return this._users.asObservable();
+  }
+
+  userById(id: number): User {
+    return this.dataStore.users.find(x => Number(x.id) === Number(id));
   }
 
   loadAll() {
