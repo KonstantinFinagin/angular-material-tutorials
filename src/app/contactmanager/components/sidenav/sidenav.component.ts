@@ -24,6 +24,7 @@ export class SidenavComponent implements OnInit {
     matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
 
   users: Observable<User[]>;
+  isDarkTheme: boolean = false;
 
   constructor(
     public breakPointObserver: BreakpointObserver,
@@ -53,5 +54,9 @@ export class SidenavComponent implements OnInit {
         this._isSmallScreen = true;
       }
     });
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }
